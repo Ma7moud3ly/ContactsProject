@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android Project</string>
+    <string name="welcome">Welcome Text</string>
+    <string name="button1">Button One</string>
+    <string name="button2">Button Two</string>
+    <string name="read_only_field">Enter the person’s name :</string>
+    <string name="incorrect_name">You have entered an incorrect Name</string>
+</resources>

@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         //listen to click events on button one
         button1.setOnClickListener(v -> {
             /**
-             * start the  activity SecondActivity.class to allow the user enter his name
-             * and wait an activity result with the code SECOND_ACTIVITY_CODE
+             * start the  activity @SecondActivity.class to allow the user enter his name
+             * and wait an activity result with the code @SECOND_ACTIVITY_CODE
              */
             Intent secondActivityIntent = new Intent(this, SecondActivity.class);
             startActivityForResult(secondActivityIntent, SECOND_ACTIVITY_CODE);
@@ -61,12 +61,12 @@ public class MainActivity extends AppCompatActivity {
         //listen to click events on button two
         button2.setOnClickListener(v -> {
             //if the user entered his name correctly
-            //invoke the editContact() method
+            //invoke the @editContact() method
             if (nameState == NAME_RESULT.CORRECT) {
                 editContact();
             }
             //else if the user entered an incorrect name
-            //show a toast message with the correct name
+            //show a toast message with that name
             else if (nameState == NAME_RESULT.INCORRECT) {
                 Toast.makeText(getApplicationContext(), getString(R.string.incorrect_name) +
                         " : " + personName, Toast.LENGTH_SHORT).show();
@@ -76,9 +76,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * this method is called when the user enter a correct name in the SecondActivity
-     * and press on the Button Two
-     * */
+     * this method is called when the user enter a correct name in the @SecondActivity.class and press on the Button Two
+     */
     private void editContact() {
         //make an intent to allow the user insert new contact with the default system contact provider
         //for more details check this link
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             personName = data.getStringExtra("name");
             //set the @nameState variable based on the activity result
             //Activity.RESULT_OK        ->>>> NAME_RESULT.CORRECT
-            //Activity.RESULT_CANCELED ->>>> NAME_RESULT.INCORRECT
+            //Activity.RESULT_CANCELED  ->>>> NAME_RESULT.INCORRECT
             if (resultCode == Activity.RESULT_OK) nameState = NAME_RESULT.CORRECT;
             else if (resultCode == Activity.RESULT_CANCELED) nameState = NAME_RESULT.INCORRECT;
         }

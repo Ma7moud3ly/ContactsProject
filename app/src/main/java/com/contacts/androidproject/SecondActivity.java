@@ -29,7 +29,7 @@ public class SecondActivity extends AppCompatActivity {
                 //add the name as an extra in that intent
                 returnIntent.putExtra("name", name);
                 /**
-                 * check the name with the method @isLegalName
+                 * check the name with the method @isLegalName(name)
                  * if the @name isLegalName then the activity result would be (RESULT_OK)
                  * otherwise it would be (RESULT_CANCELED)
                  */
@@ -57,7 +57,8 @@ public class SecondActivity extends AppCompatActivity {
                 return false;
         }
         //check if user entered only two words
-        String arr[] = name.split(" ");
+        //replace more empty spaces to only one empty space
+        String arr[] = name.replaceAll(" +", " ").split(" ");
         if (arr.length == 2) return true;
 
         return false;
